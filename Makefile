@@ -18,10 +18,9 @@ hello:
 .PHONY: date
 date:
 	@: $(guile \
-			(use-modules (srfi srfi-19)) \
-			(display (date->string (current-date) "~a ~b ~e ~H:~I:~S ~z ~Y")) \
-			(newline))
-
+		(use-modules (srfi srfi-19)) \
+		(display (date->string (current-date) "~a ~b ~e ~H:~I:~S ~z ~Y")) \
+		(newline))
 
 #
 # grep
