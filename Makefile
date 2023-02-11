@@ -6,7 +6,7 @@ features:
 	@echo $(guile (gmk-expand "$(.FEATURES)"))
 
 #
-# check guile and that version
+# check guile and show version
 #
 define GUILE_CHECK_CODE
 (use-modules (srfi srfi-19))
