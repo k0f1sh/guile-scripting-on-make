@@ -3,25 +3,19 @@
 #
 .PHONY: features
 features:
-	@echo $(guile (gmk-expand "$(.FEATURES)"))
+	@echo $(.FEATURES)
 
 #
-# check guile and show version
+# show guile version
 #
-define GUILE_CHECK_CODE
-(use-modules (srfi srfi-19))
-(if (string-contains (gmk-expand "$(.FEATURES)") "guile")
-    (begin
-      (display "guile version: ")
-      (display (version))
-      (newline))
-    (begin
-      (display "guile extension is not installed")
-      (newline)))
+define GUILE_SHOW_VERSION_CODE
+(display "guile version: ")
+(display (version))
+(newline)
 endef
-.PHONY: check
-check:
-	@: $(guile $(GUILE_CHECK_CODE))
+.PHONY: show-guile-version
+show-guile-version:
+	@: $(guile $(GUILE_SHOW_VERSION_CODE))
 
 #
 # Hello, world!
